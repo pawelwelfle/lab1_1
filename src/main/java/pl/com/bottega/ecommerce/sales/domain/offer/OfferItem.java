@@ -29,10 +29,11 @@ public class OfferItem {
 
     private Money discount;
 
-//    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate, String productType,
-//            int quantity) {
-//        this(productId, productPrice, productName, productSnapshotDate, productType, quantity, null, null);
-//    }
+    public OfferItem(Product product, int quantity, Money totalCost) {
+        this.product = product;
+        this.quantity = quantity;
+        this.totalCost = totalCost;
+    }
 
     public OfferItem(Product product, int quantity, Money totalCost, String discountCause, Money discount) {
         this.product = product;
@@ -41,28 +42,15 @@ public class OfferItem {
         this.discountCause = discountCause;
         this.discount = discount;
 
-
-    }
-
-    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate, String productType,
-            int quantity, BigDecimal discount, String discountCause) {
-        this.productId = productId;
-        this.productPrice = productPrice;
-        this.productName = productName;
-        this.productSnapshotDate = productSnapshotDate;
-        this.productType = productType;
-
-        this.quantity = quantity;
-        this.discount = discount;
-        this.discountCause = discountCause;
-
         BigDecimal discountValue = new BigDecimal(0);
         if (discount != null) {
             discountValue = discountValue.add(discount);
         }
 
-        this.totalCost = productPrice.multiply(new BigDecimal(quantity)).subtract(discountValue);
+        this.totalCost = totalCost.getDenomination(new BigDecimal(quantity)).subtract(discountValue);
+
     }
+
 
     public Product getProduct() {
         return product;
@@ -104,14 +92,10 @@ public class OfferItem {
         this.discount = discount;
     }
 
-
-
-
     @Override public int hashCode() {
         return Objects.hash(currency, discount, discountCause, productId, productName, productPrice, productSnapshotDate, productType,
                 quantity, totalCost);
     }
-
 
     @Override public boolean equals(Object obj) {
         if (this == obj) {
