@@ -18,7 +18,7 @@ import java.util.Objects;
 
 public class OfferItem {
 
-    Product product;
+    private Product product;
 
     private int quantity;
 
