@@ -23,4 +23,5 @@ public class Money {
     public void setDenomination(BigDecimal denomination) {
         this.denomination = denomination;
     }
+
 }
