@@ -92,32 +92,19 @@ public class OfferItem {
         this.discount = discount;
     }
 
-    @Override public int hashCode() {
-        return Objects.hash(currency, discount, discountCause, productId, productName, productPrice, productSnapshotDate, productType,
-                quantity, totalCost);
+    @Override public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        OfferItem offerItem = (OfferItem) o;
+        return quantity == offerItem.quantity && Objects.equals(product, offerItem.product) && Objects.equals(totalCost,
+                offerItem.totalCost) && Objects.equals(discountCause, offerItem.discountCause) && Objects.equals(discount,
+                offerItem.discount);
     }
 
-    @Override public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        OfferItem other = (OfferItem) obj;
-        return Objects.equals(currency, other.currency)
-               && Objects.equals(discount, other.discount)
-               && Objects.equals(discountCause, other.discountCause)
-               && Objects.equals(productId, other.productId)
-               && Objects.equals(productName, other.productName)
-               && Objects.equals(productPrice, other.productPrice)
-               && Objects.equals(productSnapshotDate, other.productSnapshotDate)
-               && Objects.equals(productType, other.productType)
-               && quantity == other.quantity
-               && Objects.equals(totalCost, other.totalCost);
+    @Override public int hashCode() {
+        return Objects.hash(product, quantity, totalCost, discountCause, discount);
     }
 
     /**
