@@ -45,4 +45,12 @@ public class Product {
     public void setProductType(String productType) {
         this.productType = productType;
     }
+
+    public Money getPrice() {
+        return price;
+    }
+
+    public void setPrice(Money price) {
+        this.price = price;
+    }
 }

@@ -29,12 +29,20 @@ public class OfferItem {
 
     private Money discount;
 
-    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate, String productType,
-            int quantity) {
-        this(productId, productPrice, productName, productSnapshotDate, productType, quantity, null, null);
+//    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate, String productType,
+//            int quantity) {
+//        this(productId, productPrice, productName, productSnapshotDate, productType, quantity, null, null);
+//    }
+
+    public OfferItem(Product product, int quantity, Money totalCost, String discountCause, Money discount) {
+        this.product = product;
+        this.quantity = quantity;
+        this.totalCost = totalCost;
+        this.discountCause = discountCause;
+        this.discount = discount;
+
+
     }
-
-
 
     public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate, String productType,
             int quantity, BigDecimal discount, String discountCause) {
@@ -56,50 +64,54 @@ public class OfferItem {
         this.totalCost = productPrice.multiply(new BigDecimal(quantity)).subtract(discountValue);
     }
 
-    public String getProductId() {
-        return productId;
+    public Product getProduct() {
+        return product;
     }
 
-    public BigDecimal getProductPrice() {
-        return productPrice;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public Date getProductSnapshotDate() {
-        return productSnapshotDate;
-    }
-
-    public String getProductType() {
-        return productType;
-    }
-
-    public BigDecimal getTotalCost() {
-        return totalCost;
-    }
-
-    public String getTotalCostCurrency() {
-        return currency;
-    }
-
-    public BigDecimal getDiscount() {
-        return discount;
-    }
-
-    public String getDiscountCause() {
-        return discountCause;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public int getQuantity() {
         return quantity;
     }
 
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Money getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(Money totalCost) {
+        this.totalCost = totalCost;
+    }
+
+    public String getDiscountCause() {
+        return discountCause;
+    }
+
+    public void setDiscountCause(String discountCause) {
+        this.discountCause = discountCause;
+    }
+
+    public Money getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Money discount) {
+        this.discount = discount;
+    }
+
+
+
+
     @Override public int hashCode() {
         return Objects.hash(currency, discount, discountCause, productId, productName, productPrice, productSnapshotDate, productType,
                 quantity, totalCost);
     }
+
 
     @Override public boolean equals(Object obj) {
         if (this == obj) {
