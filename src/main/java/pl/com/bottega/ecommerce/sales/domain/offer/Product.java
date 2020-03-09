@@ -12,6 +12,8 @@ public class Product {
 
     private String productType;
 
+    private Money price;
+
     public String getProductId() {
         return productId;
     }
