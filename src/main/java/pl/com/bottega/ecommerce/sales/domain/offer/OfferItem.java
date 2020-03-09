@@ -33,6 +33,8 @@ public class OfferItem {
 
     private BigDecimal totalCost;
 
+    private String currency;
+
     // discount
     private String discountCause;
 
