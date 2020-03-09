@@ -33,8 +33,6 @@ public class OfferItem {
 
     private BigDecimal totalCost;
 
-    private String currency;
-
     // discount
     private String discountCause;
 
@@ -62,8 +60,7 @@ public class OfferItem {
             discountValue = discountValue.add(discount);
         }
 
-        this.totalCost = productPrice.multiply(new BigDecimal(quantity))
-                                     .subtract(discountValue);
+        this.totalCost = productPrice.multiply(new BigDecimal(quantity)).subtract(discountValue);
     }
 
     public String getProductId() {
@@ -106,14 +103,12 @@ public class OfferItem {
         return quantity;
     }
 
-    @Override
-    public int hashCode() {
+    @Override public int hashCode() {
         return Objects.hash(currency, discount, discountCause, productId, productName, productPrice, productSnapshotDate, productType,
                 quantity, totalCost);
     }
 
-    @Override
-    public boolean equals(Object obj) {
+    @Override public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
@@ -137,10 +132,8 @@ public class OfferItem {
     }
 
     /**
-     *
      * @param item
-     * @param delta
-     *            acceptable percentage difference
+     * @param delta acceptable percentage difference
      * @return
      */
     public boolean sameAs(OfferItem other, double delta) {
