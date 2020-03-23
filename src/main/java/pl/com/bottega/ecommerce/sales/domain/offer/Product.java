@@ -4,53 +4,53 @@ import java.util.Date;
 
 public class Product {
 
-    private String productId;
+    private String Id;
 
-    private String productName;
+    private String Name;
 
-    private Date productSnapshotDate;
+    private Date SnapshotDate;
 
-    private String productType;
+    private String Type;
 
-    private Money price;
+    private Money Price;
 
-    public String getProductId() {
-        return productId;
+    public String getId() {
+        return Id;
     }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
+    public void setId(String id) {
+        Id = id;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getName() {
+        return Name;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setName(String name) {
+        Name = name;
     }
 
-    public Date getProductSnapshotDate() {
-        return productSnapshotDate;
+    public Date getSnapshotDate() {
+        return SnapshotDate;
     }
 
-    public void setProductSnapshotDate(Date productSnapshotDate) {
-        this.productSnapshotDate = productSnapshotDate;
+    public void setSnapshotDate(Date snapshotDate) {
+        SnapshotDate = snapshotDate;
     }
 
-    public String getProductType() {
-        return productType;
+    public String getType() {
+        return Type;
     }
 
-    public void setProductType(String productType) {
-        this.productType = productType;
+    public void setType(String type) {
+        Type = type;
     }
 
     public Money getPrice() {
-        return price;
+        return Price;
     }
 
     public void setPrice(Money price) {
-        this.price = price;
+        this.Price = price;
     }
 }

@@ -31,9 +31,6 @@ public class OfferItem {
         return getProduct().getPrice().getDenomination().multiply(new BigDecimal(quantity)).subtract(discountValue);
 
     }
-
-    ;
-
     // discount
     private String discountCause;
 
@@ -112,26 +109,26 @@ public class OfferItem {
         } else if (!getProduct().getPrice().equals(other.getProduct().getPrice())) {
             return false;
         }
-        if (getProduct().getProductName() == null) {
-            if (other.getProduct().getProductName() != null) {
+        if (getProduct().getName() == null) {
+            if (other.getProduct().getName() != null) {
                 return false;
             }
-        } else if (!getProduct().getProductName().equals(other.getProduct().getProductName())) {
+        } else if (!getProduct().getName().equals(other.getProduct().getName())) {
             return false;
         }
 
-        if (getProduct().getProductId() == null) {
-            if (other.getProduct().getProductId() != null) {
+        if (getProduct().getId() == null) {
+            if (other.getProduct().getId() != null) {
                 return false;
             }
-        } else if (!getProduct().getProductId().equals(other.getProduct().getProductId())) {
+        } else if (!getProduct().getId().equals(other.getProduct().getId())) {
             return false;
         }
-        if (getProduct().getProductType() == null) {
-            if (other.getProduct().getProductType() != null) {
+        if (getProduct().getType() == null) {
+            if (other.getProduct().getType() != null) {
                 return false;
             }
-        } else if (!getProduct().getProductType().equals(other.getProduct().getProductType())) {
+        } else if (!getProduct().getType().equals(other.getProduct().getType())) {
             return false;
         }
 
